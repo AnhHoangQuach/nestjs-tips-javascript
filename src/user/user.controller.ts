@@ -23,9 +23,11 @@ import { storage } from './oss';
 import { UserService } from './user.service';
 import * as fs from 'fs';
 import { Response } from 'express';
+import { MyLogger } from '../logger/my.logger';
 
 @Controller('user')
 export class UserController {
+  private logger = new MyLogger();
   constructor(private readonly userService: UserService) {}
 
   @Get('merge/file')
